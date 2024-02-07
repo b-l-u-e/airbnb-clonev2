@@ -5,6 +5,8 @@ import NextAuth, { AuthOptions } from 'next-auth';
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from 'bcrypt'
 
+
+
 import { PrismaClient } from '@prisma/client';
 
 
@@ -16,10 +18,12 @@ export const authOptions: AuthOptions = {
         GitHubProvider({
             clientId: process.env.GITHUB_ID as string,
             clientSecret: process.env.GITHUB_SECRET as string,
+            allowDangerousEmailAccountLinking: true,
         }),
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID as string,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+            allowDangerousEmailAccountLinking: true,
         }),
         CredentialsProvider({
             name: 'credentials',
@@ -48,20 +52,21 @@ export const authOptions: AuthOptions = {
                     throw new Error('Invalid credentials');
                 }
 
-                return Promise.resolve(user);
+                return user;
             },
         }),
     ],
+    
     pages: {
         signIn: '/'
     },
 
+   
     debug: process.env.NODE_ENV === 'development',
     session: {
         strategy: "jwt"
     },
 
-    
     secret: process.env.NEXTAUTH_SECRET,
 };
 
