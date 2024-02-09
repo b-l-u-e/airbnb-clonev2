@@ -9,13 +9,13 @@ const Logo = () => {
       <Image
         onClick={() => router.push("/")}
         alt="logo"
-        className='hidden md:block cursor-pointer'
-        height='100'
-        width='100'
-        src = '/images/airbnb.png'
-
+        className="hidden md:block cursor-pointer"
+        height="100"
+        width="100"
+        src="/images/airbnb.png"
+        // sizes="(max-width: 768px) 40vw, 33vw"
       />
-      );
+    );
 }
  
 export default Logo;

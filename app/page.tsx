@@ -47,7 +47,7 @@ export default async function Home() {
         "
         >
           {
-              listings.map((listing: any) => {
+              listings.map((listing) => {
               return (
                 // <div>{listings.title}</div>
                 <ListingCard
