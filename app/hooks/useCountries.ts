@@ -6,7 +6,7 @@ const formattedCountries = countries.map((country) => ({
   flag: country.flag,
   latlng: country.latlng,
   region: country.region,
-  // currency: country.currencies
+  currency: country.currencies
 
  
   
